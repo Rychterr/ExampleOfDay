@@ -60,8 +60,8 @@ namespace qatest.sources
             {
                 _fun.WaitForElementToClickableClick(_nextPage, false);
                 string _xpath = string.Format(_addContactXPATH, 1);
-                    if (_fun.DoesElementExist(_xpath))
-                    {
+                if (_fun.DoesElementExist(_xpath))
+                {
                     IWebElement _addConact = _driver.FindElement(By.XPath(_xpath));
                     _fun.WaitForElementToClickableClick(_addConact);
                     _fun.WaitForElementToClickableClick(_note);
@@ -71,8 +71,12 @@ namespace qatest.sources
                     if (_fun.IsElementVisible(_send))
                         _send.Click();
                     else
+                    {       
                         _cancel.Click();
+                        _nextPage.Click();
+                        _i = 0;
                     }
+                }
                     else
                     {
                     _nextPage.Click();
